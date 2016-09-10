@@ -1,19 +1,41 @@
-var demo = {};
+var demo = {}, altura  = 1920/2, ancho = 1080/2, larry, speed = 4;
 demo.state0 = function(){};
 demo.state0.prototype = {
-    preload: function (){},
+    preload: function (){
+        game.load.image('larry', 'assets/sprites/larry1.png');
+
+    },
     create: function(){
         game.stage.backgroundColor = '#80ff80';
         console.log('state0');
         //THINGS TO REMEMBER
         // eventlistener are local to the state that they were made in
         
+        //we just call the function that does all the callbacks
         addChangeStateEventListeners();
         
+        //to scale the size of the game in relation to the window's size
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-
+        
+        
+        //add image to the map
+        larry = game.add.sprite(altura, ancho, 'larry');
+        larry.anchor.setTo(0.5,0.5);
     },
-    update: function(){}
+    update: function(){
+        if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
+            larry.x += speed;
+        }
+        else if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
+            larry.x -= speed;
+        }
+        if(game.input.keyboard.isDown(Phaser.Keyboard.UP)){
+            larry.y  -= speed;
+        }
+        else if(game.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
+            larry.y += speed;
+        }
+    }
     
 };
 
