@@ -5,7 +5,7 @@ demo.state1.prototype = {
         game.load.tilemap('field', 'assets/tilemaps/campo2.json', null, Phaser.Tilemap.TILED_JSON); 
         game.load.image('grass', 'assets/tilemaps/grass.png');
         game.load.image('rocks', 'assets/tilemaps/rocks.png');
-        game.load.image('lar', 'assets/sprites/larry2.png');
+        game.load.image('lar', 'assets/sprites/larry1.png');
     },
     create: function(){
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -26,7 +26,7 @@ demo.state1.prototype = {
         map.setCollision(1, true, 'grass');
         
         lar = game.add.sprite(200, 250, 'lar');
-        lar.scale.setTo(0.2, 0.2);
+        lar.scale.setTo(0.5, 0.5);
         game.physics.enable(lar);
         
         cursors = game.input.keyboard.createCursorKeys();
