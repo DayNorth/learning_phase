@@ -11,7 +11,6 @@ demo.state0.prototype = {
         //start the physics engine.
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.stage.backgroundColor = '#80ff80';
-        console.log('state0');
         //THINGS TO REMEMBER
         // eventlistener are local to the state that they were made in
         
@@ -40,7 +39,7 @@ demo.state0.prototype = {
         //adding camera movement
         game.camera.follow(lar);
         //adding a rectangule so when the character moves away from the rectangule, the camera starts to follow him
-        game.camera.deadzone = new Phaser.Rectangule(ancho - 300, 0, 600, 1000);
+        game.camera.deadzone = new Phaser.Rectangle(ancho - 300, 0, 600, 1000);
         
         //animation for walking
 
@@ -82,6 +81,7 @@ demo.state0.prototype = {
 
 //to change states 
 function changeState(i, stateNum){
+    console.log('state' + stateNum);
     game.state.start('state' + stateNum);
 }
 //to stop using or creating te same type of code everytime just to know what key you pressed
